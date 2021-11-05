@@ -3,6 +3,9 @@
 #include <sstream>// tokenizar el string 
 #include <vector>
 #include <string>
+#include <list>
+#include <functional>
+#include "hashTable.h"
 
 using namespace std;
 
@@ -26,8 +29,41 @@ int main() {
   vector<string> genoma;
   
   cargaWuhanFasta(genoma);
-  for(int i = 0; i < genoma.size(); i++)
+  // for(int i = 0; i < genoma.size(); i++)
+  //   cout << genoma[i] << endl;
+  
+  for(int i = 0; i < genoma.size(); i++){
+    if(genoma[i] == "T") genoma[i] = "U";
     cout << genoma[i] << endl;
+  }
+
+
+  // vector dictionary of bases
+  vector<vector<string>> bases_dictionary = {{"UUU", "Phe"}, {"UUC", "Phe"}, {"UUA", "Leu"}, {"UUG", "Leu"},
+                                             {"CUU", "Leu"}, {"CUC", "Leu"}, {"CUA", "Leu"}, {"CUG", "Leu"},
+                                             {"UCU", "Ser"}, {"UCC", "Ser"}, {"UCA", "Ser"}, {"UCG", "Ser"},
+                                             {"CCU", "Pro"}, {"CCC", "Pro"}, {"CCA", "Pro"}, {"CCG", "Pro"},
+                                             {"UAU", "Tyr"}, {"UAC", "Tyr"}, {"UAA", "sto"}, {"UAG", "sto"},
+                                             {"CAU", "His"}, {"CAC", "His"}, {"CAA", "Gln"}, {"CAG", "Gln"},
+                                             {"UGU", "Cys"}, {"UGC", "Cys"}, {"UGA", "sto"}, {"UGG", "Trp"},
+                                             {"CGU", "Arg"}, {"CGC", "Arg"}, {"CGA", "Arg"}, {"CGG", "Arg"},
+                                             {"AUU", "Ile"}, {"AUC", "Ila"}, {"AUA", "Ile"}, {"AUG", "Met"},
+                                             {"ACU", "Thr"}, {"ACC", "Thr"}, {"ACA", "Thr"}, {"ACG", "Thr"},
+                                             {"AAU", "Asn"}, {"AAC", "Asn"}, {"AAA", "Lys"}, {"AAG", "Lys"},
+                                             {"AGU", "Ser"}, {"AGC", "Ser"}, {"AGA", "Arg"}, {"AGG", "Arg"},
+                                             {"GUU", "Val"}, {"GUC", "Val"}, {"GUA", "Val"}, {"GUG", "Val"},
+                                             {"GCU", "Ala"}, {"GCC", "Ala"}, {"GCA", "Ala"}, {"GCG", "Ala"},
+                                             {"GAU", "Asp"}, {"GAC", "Asp"}, {"GAA", "Glu"}, {"GAG", "Glu"},
+                                             {"GGU", "Gly"}, {"GGC", "Gly"}, {"GGA", "Gly"}, {"GGG", "Gly"}};
+  
+// count number of group bases for creating hashtable
+// read 3 by 3 letters, translate and add to hashtable with base name
+// key = "UUU" and value = "Phe"
+// replace function
+// for(int i = 0; i < genoma.size(); i += 3){
+
+// }
+
 /*
 Laboratorio del Genoma del SARS-COV2 & HashTable
 Ejercicio 1:
