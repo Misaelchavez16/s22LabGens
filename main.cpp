@@ -24,18 +24,9 @@ void cargaWuhanFasta(vector<string> & datos){
   lector.close();
 }
 int main() {
-  cout << "Hello World!\n";
   vector<string> genoma;
   
   cargaWuhanFasta(genoma);
-  // for(int i = 0; i < genoma.size(); i++)
-  //   cout << genoma[i] << endl;
-  
-  // for(int i = 0; i < genoma.size(); i++){
-  //   if(genoma[i] == "T") genoma[i] = "U";
-  //   cout << genoma[i] << endl;
-  // }
-
 
   // vector dictionary of bases
   vector<vector<string>> bases_dictionary = {{"UUU", "Phe"}, {"UUC", "Phe"}, {"UUA", "Leu"}, {"UUG", "Leu"},
@@ -54,48 +45,17 @@ int main() {
                                              {"GCU", "Ala"}, {"GCC", "Ala"}, {"GCA", "Ala"}, {"GCG", "Ala"},
                                              {"GAU", "Asp"}, {"GAC", "Asp"}, {"GAA", "Glu"}, {"GAG", "Glu"},
                                              {"GGU", "Gly"}, {"GGC", "Gly"}, {"GGA", "Gly"}, {"GGG", "Gly"}};
-  
-// count number of group bases for creating hashtable
-// read 3 by 3 letters, translate and add to hashtable with base name
-// key = "UUU" and value = "Phe"
-// replace function
-// for(int i = 0; i < genoma.size(); i += 3){
-
-// }
-
-Hashtable<string, string> b_d(8000);
-for(int i = 0; i < bases_dictionary.size(); i++){
-  b_d.put(bases_dictionary[i][0], bases_dictionary[i][1]);
-}
-cout << "num_elements in table: " << b_d.no_elements_in() << endl;
-cout << "size bases_dictionary vector: " << bases_dictionary.size() << endl;
 
 int num_nucletides = 0, j;
 string chain="";
-// replacing T's with U's 
 for(int i = 0; i < genoma.size(); i++){
   for(j = 0; j < genoma[i].size(); j++){ 
     if(genoma[i][j] == 'T') genoma[i][j] = 'U';
     chain+=genoma[i][j];
   }
-  // cout << genoma[i] << endl;
 }
-cout << "num nucleotides: " << chain.size() << endl; // 29903 total nucs
-cout << "num total groups: " << chain.size() / 3 << endl; // 9967 groups of 3 (size of hasht)
 
-hash<int>khash;
-cout << khash(0) % 9967 << endl;
-string lol = chain.substr(0, 3);
-cout << "check : "<< lol << endl;
 
-Hashtable<int, string> bases_counter(chain.size() / 3);
-string base_pointer;
-for(int i = 0; i < chain.size(); i++){
-  base_pointer = chain.substr(i, 3);
-  bases_counter.put(i, b_d.get(base_pointer));
-  // bases_counter.put(i, base_pointer);
-}
-// bases_counter.print();
 
 
 // for this version  the key will be the base's and the value will act as a counter
@@ -111,14 +71,6 @@ second_counter_bases.print_filled();
 cout << "=============================" << endl;
 second_counter_bases.print_starting_with('A');
 
-//get_or_default
-// for(int i = 0; i < genoma.size(); i+=3){
-//   for(int j = 0; j < bases_dictionary.size(); i++){
-    
-//   }
-//   bases_dict_hash.put(counter, );
-//   counter ++;
-// }
 
 /*
 Laboratorio del Genoma del SARS-COV2 & HashTable
