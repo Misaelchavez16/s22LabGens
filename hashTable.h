@@ -138,8 +138,9 @@ class Hashtable{
       }
 
 
-
-      // additional methods
+      // ================================
+      // additional methods for 
+      // ================================
       int no_elements_in(){
         int counter = 0;
         for(int i = 0; i < size; i++) if(tabla[i].value != null_hash.value) counter ++;
