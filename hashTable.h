@@ -100,5 +100,16 @@ class Hashtable{
         for(int i = 0; i < size; i++) if(tabla[i].value != other.tabla[i].value && tabla[i].key != other.tabla[i].key) return false;
         return true;
       }
+      int no_elements_in(){
+        int counter = 0;
+        for(int i = 0; i < size; i++) if(tabla[i].value != null_hash.value) counter ++;
+        return counter;
+      }
+      void counter_addition(K key, int to_add){
+        tabla[fh(key)].value += to_add;
+      }
+      void print_filled(){
+        for(int i = 0; i < size; i++) if(tabla[i].value != null_hash.value) cout <<"i: " << i << " k: " << tabla[i].key  << " v: " << tabla[i].value << endl;
+      }
 
 };
