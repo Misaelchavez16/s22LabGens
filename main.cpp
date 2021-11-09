@@ -105,6 +105,12 @@ for(int i = 0; i < chain.size(); i++){
   second_counter_bases.counter_addition(chain.substr(i, 3), 1);
 }
 second_counter_bases.print_filled();
+cout << "=============================" << endl;
+second_counter_bases.delete_values(100);
+second_counter_bases.print_filled();
+cout << "=============================" << endl;
+second_counter_bases.print_starting_with('A');
+
 //get_or_default
 // for(int i = 0; i < genoma.size(); i+=3){
 //   for(int j = 0; j < bases_dictionary.size(); i++){

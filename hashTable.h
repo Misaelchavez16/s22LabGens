@@ -100,6 +100,8 @@ class Hashtable{
         for(int i = 0; i < size; i++) if(tabla[i].value != other.tabla[i].value && tabla[i].key != other.tabla[i].key) return false;
         return true;
       }
+
+      // additional methods
       int no_elements_in(){
         int counter = 0;
         for(int i = 0; i < size; i++) if(tabla[i].value != null_hash.value) counter ++;
@@ -110,6 +112,12 @@ class Hashtable{
       }
       void print_filled(){
         for(int i = 0; i < size; i++) if(tabla[i].value != null_hash.value) cout <<"i: " << i << " k: " << tabla[i].key  << " v: " << tabla[i].value << endl;
+      }
+      void delete_values(int quantity){
+        for(int i = 0; i < size; i++)if(tabla[i].value < quantity) tabla[i] = null_hash;
+      }
+      void print_starting_with(char letter){
+        for(int i = 0; i < size; i++)if(tabla[i].key[0] == letter) cout <<"i: " << i << " k: " << tabla[i].key  << " v: " << tabla[i].value << endl;
       }
 
 };
